@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - 7 Arts Theatre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theatre-red': '#8B0000',
+                        'theatre-dark': '#1a0000',
+                        'theatre-black': '#0a0a0a',
+                        'gold-accent': '#D4AF37',
+                        'african-red': '#C41E3A',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-theatre-black text-white font-body overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-theatre-black/95 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="logo-container">
+                    <div class="logo-3d">
+                        <span class="logo-text">7</span>
+                        <span class="logo-text">A</span>
+                        <span class="logo-text">R</span>
+                        <span class="logo-text">T</span>
+                        <span class="logo-text">S</span>
+                    </div>
+                    <div class="logo-subtitle">THEATRE</div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="products.html" class="nav-link active">Products</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="tickets.html" class="btn-ticket">
+                        <span class="relative z-10">Get Tickets</span>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-theatre-black/95 backdrop-blur-lg">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="../index.html" class="block nav-link-mobile">Home</a>
+                <a href="about.html" class="block nav-link-mobile">About</a>
+                <a href="events.html" class="block nav-link-mobile">Events</a>
+                <a href="services.html" class="block nav-link-mobile">Services</a>
+                <a href="products.html" class="block nav-link-mobile active">Products</a>
+                <a href="contact.html" class="block nav-link-mobile">Contact</a>
+                <a href="tickets.html" class="block btn-ticket w-full text-center">Get Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Hero Section -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="hero-3d-container">
+            <div class="hero-slide active" style="background-image: url('../assets/images/homehero2.png')"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-glow"></div>
+        </div>
+        
+        <div class="hero-particles" id="particles"></div>
+        
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center pt-24">
+            <p class="text-gold-accent tracking-[0.3em] uppercase mb-4 text-lg animate-fade-in">Our Products</p>
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
+                What We <span class="text-gradient">Offer</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-delay">
+                Additional services to complement your events
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Tabs -->
+    <section class="py-10 bg-theatre-dark">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="tab-btn active" data-tab="mujegra">Mujegra Photostudio</button>
+                <button class="tab-btn" data-tab="proticket">7ProTicket</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mujegra Photostudio -->
+    <section id="mujegra" class="tab-content py-20 bg-theatre-black">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-4 py-1 bg-theatre-red/20 text-gold-accent rounded-full text-sm mb-4">7 Arts Theatre Product</div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Mujegra <span class="text-gradient">Photostudio</span></h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Welcome to Mujegra Photostudio, your premier destination for professional photography and videography services in Harare.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Whether you're planning a corporate event, wedding, or need professional headshots, our experienced team delivers stunning visuals.
+                    </p>
+
+                    <h3 class="font-display text-2xl font-semibold mb-4">Our Services</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <span class="text-gold-accent mr-2">📸</span> Event Photography
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <span class="text-gold-accent mr-2">🎥</span> Videography
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <span class="text-gold-accent mr-2">👔</span> Corporate Headshots
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <span class="text-gold-accent mr-2">💍</span> Wedding Coverage
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn-primary">
+                        <span class="relative z-10">Book a Session</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+
+                <div class="relative" data-tilt>
+                    <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold-accent rounded-2xl"></div>
+                    <img src="../assets/images/home/event3.jpg" alt="Mujegra Photostudio" class="relative rounded-2xl w-full h-[500px] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7ProTicket -->
+    <section id="proticket" class="tab-content py-20 bg-theatre-black hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="relative" data-tilt>
+                        <img src="../assets/images/home/event1.jpg" alt="7ProTicket" class="rounded-2xl w-full h-[500px] object-cover">
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="inline-block px-4 py-1 bg-theatre-red/20 text-gold-accent rounded-full text-sm mb-4">7 Arts Theatre Product</div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">7<span class="text-gradient">ProTicket</span></h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        The ultimate event ticketing solution for seamless entry management. Sell tickets online with instant e-tickets.
+                    </p>
+
+                    <h3 class="font-display text-2xl font-semibold mb-4">Key Features</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-gold-accent">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Online Ticket Sales</h4>
+                                <p class="text-gray-400 text-sm">Sell tickets directly from your website</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-gold-accent">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">E-Tickets with Barcodes</h4>
+                                <p class="text-gray-400 text-sm">Instant digital tickets with QR codes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-gold-accent">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Real-time Entry Tracking</h4>
+                                <p class="text-gray-400 text-sm">Monitor attendance in real-time</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tickets.html" class="btn-primary">
+                        <span class="relative z-10">Get Tickets</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-theatre-red/20 to-theatre-dark/20"></div>
+        <div class="hero-3d-container opacity-30">
+            <div class="hero-slide active" style="background-image: url('../assets/images/homehero1.png')"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Interested in Our Products?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Contact us today to learn more.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-primary">
+                    <span class="relative z-10">Contact Us</span>
+                    <div class="btn-shine"></div>
+                </a>
+                <a href="events.html" class="btn-secondary">
+                    <span class="relative z-10">View Events</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theatre-dark py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="../index.html" class="logo-container mb-4 inline-block">
+                        <div class="logo-3d">
+                            <span class="logo-text">7</span>
+                            <span class="logo-text">A</span>
+                            <span class="logo-text">R</span>
+                            <span class="logo-text">T</span>
+                            <span class="logo-text">S</span>
+                        </div>
+                        <div class="logo-subtitle">THEATRE</div>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your premier destination for events in Harare.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-accent">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-accent">About Us</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-gold-accent">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Mujegra Photostudio</li>
+                        <li class="text-gray-400">7ProTicket</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Sammer Gallery, Avondale</li>
+                        <li>+263 77 954 0395</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500">&copy; 2026 7 Arts Theatre. All rights reserved. | Harare, Zimbabwe</p>
+                <p class="text-gray-600 text-xs mt-2">Designed and developed by: <a href="https://www.blacklemur.co.zw" target="_blank" class="text-gold-accent">Blacklemur Innovations</a> - www.blacklemur.co.zw</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const tabId = btn.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

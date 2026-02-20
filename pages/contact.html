@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - 7 Arts Theatre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theatre-red': '#8B0000',
+                        'theatre-dark': '#1a0000',
+                        'theatre-black': '#0a0a0a',
+                        'gold-accent': '#D4AF37',
+                        'african-red': '#C41E3A',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-theatre-black text-white font-body overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-theatre-black/95 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="logo-container">
+                    <div class="logo-3d">
+                        <span class="logo-text">7</span>
+                        <span class="logo-text">A</span>
+                        <span class="logo-text">R</span>
+                        <span class="logo-text">T</span>
+                        <span class="logo-text">S</span>
+                    </div>
+                    <div class="logo-subtitle">THEATRE</div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                    <a href="tickets.html" class="btn-ticket">
+                        <span class="relative z-10">Get Tickets</span>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-theatre-black/95 backdrop-blur-lg">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="../index.html" class="block nav-link-mobile">Home</a>
+                <a href="about.html" class="block nav-link-mobile">About</a>
+                <a href="events.html" class="block nav-link-mobile">Events</a>
+                <a href="services.html" class="block nav-link-mobile">Services</a>
+                <a href="products.html" class="block nav-link-mobile">Products</a>
+                <a href="contact.html" class="block nav-link-mobile active">Contact</a>
+                <a href="tickets.html" class="block btn-ticket w-full text-center">Get Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Hero Section -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="hero-3d-container">
+            <div class="hero-slide active" style="background-image: url('../assets/images/homehero3.png')"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-glow"></div>
+        </div>
+        
+        <div class="hero-particles" id="particles"></div>
+        
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center pt-24">
+            <p class="text-gold-accent tracking-[0.3em] uppercase mb-4 text-lg animate-fade-in">Get In Touch</p>
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
+                Contact <span class="text-gradient">Us</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-delay">
+                We'd love to hear from you
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-theatre-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="service-card" data-tilt>
+                    <h2 class="font-display text-3xl font-bold mb-6 text-center">Send Us a Message</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Your Name *</label>
+                            <input type="text" name="name" required class="form-input" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email Address *</label>
+                            <input type="email" name="email" required class="form-input" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="+263 XXX XXX XXX">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subject *</label>
+                            <select name="subject" required class="form-input">
+                                <option value="">Select a subject</option>
+                                <option value="Event Booking">Event Booking Inquiry</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Partnership">Partnership Opportunity</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message *</label>
+                            <textarea name="message" required rows="5" class="form-input" placeholder="Tell us about your event or inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full">
+                            <span class="relative z-10">Send Message</span>
+                            <div class="btn-shine"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <div class="service-card mb-8" data-tilt>
+                        <h3 class="font-display text-2xl font-semibold mb-6">Visit Us</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Address</h4>
+                                    <p class="text-gray-400">Sammer Gallery, Avondale Shopping Centre<br>Harare, Zimbabwe</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone / WhatsApp</h4>
+                                    <p class="text-gray-400">+263 77 954 0395</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-gray-400">pastorjeph@7artstheatre.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="service-card" data-tilt>
+                        <img src="../assets/images/home/event2.jpg" alt="7 Arts Theatre" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="font-display text-2xl font-semibold mb-4">Business Hours</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Monday - Friday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Saturday</span>
+                                <span>9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Sunday</span>
+                                <span>By Appointment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Options -->
+    <section class="py-20 bg-theatre-black">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="tel:+263779540395" class="service-card group text-center hover:border-gold-accent" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-theatre-red to-african-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Call Us</h3>
+                    <p class="text-gray-400">+263 77 954 0395</p>
+                </a>
+
+                <a href="https://wa.me/263779540395" target="_blank" class="service-card group text-center hover:border-gold-accent" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297a11.815 11.815 0 00-.696-3.243c-.292-.35-.579-.766-.882-1.133l-.355-.25-.355.25c.3.367.59.784.882 1.133a11.94 11.94 0 01.695 3.243 11.925 11.925 0 01-10.625 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">WhatsApp</h3>
+                    <p class="text-gray-400">Chat with us</p>
+                </a>
+
+                <a href="mailto:pastorjeph@7artstheatre.com" class="service-card group text-center hover:border-gold-accent" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-theatre-red to-african-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-400">Send us an email</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theatre-dark py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="../index.html" class="logo-container mb-4 inline-block">
+                        <div class="logo-3d">
+                            <span class="logo-text">7</span>
+                            <span class="logo-text">A</span>
+                            <span class="logo-text">R</span>
+                            <span class="logo-text">T</span>
+                            <span class="logo-text">S</span>
+                        </div>
+                        <div class="logo-subtitle">THEATRE</div>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your premier destination for events in Harare.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-accent">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-accent">About Us</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-gold-accent">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-gold-accent">Event Spaces</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-gold-accent">Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Sammer Gallery, Avondale</li>
+                        <li>+263 77 954 0395</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500">&copy; 2026 7 Arts Theatre. All rights reserved. | Harare, Zimbabwe</p>
+                <p class="text-gray-600 text-xs mt-2">Designed and developed by: <a href="https://www.blacklemur.co.zw" target="_blank" class="text-gold-accent">Blacklemur Innovations</a> - www.blacklemur.co.zw</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

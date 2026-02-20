@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - 7 Arts Theatre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theatre-red': '#8B0000',
+                        'theatre-dark': '#1a0000',
+                        'theatre-black': '#0a0a0a',
+                        'gold-accent': '#D4AF37',
+                        'african-red': '#C41E3A',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-theatre-black text-white font-body overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-theatre-black/95 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="logo-container">
+                    <div class="logo-3d">
+                        <span class="logo-text">7</span>
+                        <span class="logo-text">A</span>
+                        <span class="logo-text">R</span>
+                        <span class="logo-text">T</span>
+                        <span class="logo-text">S</span>
+                    </div>
+                    <div class="logo-subtitle">THEATRE</div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                    <a href="services.html" class="nav-link active">Services</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="tickets.html" class="btn-ticket">
+                        <span class="relative z-10">Get Tickets</span>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-theatre-black/95 backdrop-blur-lg">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="../index.html" class="block nav-link-mobile">Home</a>
+                <a href="about.html" class="block nav-link-mobile">About</a>
+                <a href="events.html" class="block nav-link-mobile">Events</a>
+                <a href="services.html" class="block nav-link-mobile active">Services</a>
+                <a href="products.html" class="block nav-link-mobile">Products</a>
+                <a href="contact.html" class="block nav-link-mobile">Contact</a>
+                <a href="tickets.html" class="block btn-ticket w-full text-center">Get Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Hero Section -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="hero-3d-container">
+            <div class="hero-slide active" style="background-image: url('../assets/images/homehero1.png')"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-glow"></div>
+        </div>
+        
+        <div class="hero-particles" id="particles"></div>
+        
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center pt-24">
+            <p class="text-gold-accent tracking-[0.3em] uppercase mb-4 text-lg animate-fade-in">What We Offer</p>
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
+                Our <span class="text-gradient">Services</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-delay">
+                World-class venues and comprehensive event services
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Services -->
+    <section class="py-20 bg-theatre-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Corporate Functions -->
+                <div class="service-card group" data-tilt>
+                    <img src="../assets/images/home/event2.jpg" alt="Corporate Events" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <div class="service-icon">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-semibold mb-4">Corporate Functions</h3>
+                    <p class="text-gray-400 mb-4">Make your business events memorable with our professional venue.</p>
+                    <ul class="space-y-2 text-gray-300 mb-6">
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Conferences & Seminars</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Team Building Events</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Product Launches</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary inline-block">
+                        <span class="relative z-10">Request Quote</span>
+                    </a>
+                </div>
+
+                <!-- Award Ceremonies -->
+                <div class="service-card group" data-tilt>
+                    <img src="../assets/images/home/event3.jpg" alt="Award Ceremonies" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <div class="service-icon">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-semibold mb-4">Award Ceremonies</h3>
+                    <p class="text-gray-400 mb-4">Celebrate excellence with our elegant venue.</p>
+                    <ul class="space-y-2 text-gray-300 mb-6">
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Red Carpet Setup</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Stage & Podium</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Photography & Videography</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary inline-block">
+                        <span class="relative z-10">Request Quote</span>
+                    </a>
+                </div>
+
+                <!-- Church Meetings -->
+                <div class="service-card group" data-tilt>
+                    <img src="../assets/images/home/event6.jpg" alt="Church Events" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <div class="service-icon">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-semibold mb-4">Church Meetings & Events</h3>
+                    <p class="text-gray-400 mb-4">A sacred and welcoming space for religious gatherings.</p>
+                    <ul class="space-y-2 text-gray-300 mb-6">
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Worship Services</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Conferences & Retreats</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Youth Events</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary inline-block">
+                        <span class="relative z-10">Request Quote</span>
+                    </a>
+                </div>
+
+                <!-- Musical Theatre -->
+                <div class="service-card group" data-tilt>
+                    <img src="../assets/images/home/event4.jpg" alt="Musical Theatre" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <div class="service-icon">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-semibold mb-4">Musical Theatre & Concerts</h3>
+                    <p class="text-gray-400 mb-4">Exceptional acoustics and stage facilities.</p>
+                    <ul class="space-y-2 text-gray-300 mb-6">
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Professional Sound System</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Stage Lighting</li>
+                        <li class="flex items-center"><span class="text-gold-accent mr-2">✓</span> Backstage Facilities</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary inline-block">
+                        <span class="relative z-10">Request Quote</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Features -->
+    <section class="py-20 bg-theatre-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-gold-accent tracking-[0.2em] uppercase mb-4">Our Facilities</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">Venue Features</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="stat-card" data-tilt>
+                    <img src="../assets/images/home/event1.jpg" alt="AV Equipment" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <div class="text-5xl mb-4">🎤</div>
+                    <h3 class="font-display text-xl font-semibold mb-3">State-of-the-Art AV</h3>
+                    <p class="text-gray-400">Professional sound systems, HD projectors, and lighting control.</p>
+                </div>
+
+                <div class="stat-card" data-tilt>
+                    <img src="../assets/images/home/event5.jpg" alt="Flexible Seating" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <div class="text-5xl mb-4">🪑</div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Flexible Seating</h3>
+                    <p class="text-gray-400">Customizable seating from 50 to 500 guests.</p>
+                </div>
+
+                <div class="stat-card" data-tilt>
+                    <img src="../assets/images/home/event2.jpg" alt="Catering" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <div class="text-5xl mb-4">🍽️</div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Catering Services</h3>
+                    <p class="text-gray-400">Partner with our preferred catering providers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-theatre-red/20 to-theatre-dark/20"></div>
+        <div class="hero-3d-container opacity-30">
+            <div class="hero-slide active" style="background-image: url('../assets/images/homehero3.png')"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Ready to Book Your Event?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Contact our team today for a personalized quote.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-primary">
+                    <span class="relative z-10">Contact Us</span>
+                    <div class="btn-shine"></div>
+                </a>
+                <a href="events.html" class="btn-secondary">
+                    <span class="relative z-10">View Events</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theatre-dark py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="../index.html" class="logo-container mb-4 inline-block">
+                        <div class="logo-3d">
+                            <span class="logo-text">7</span>
+                            <span class="logo-text">A</span>
+                            <span class="logo-text">R</span>
+                            <span class="logo-text">T</span>
+                            <span class="logo-text">S</span>
+                        </div>
+                        <div class="logo-subtitle">THEATRE</div>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your premier destination for events in Harare.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-gold-accent">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold-accent">About Us</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-gold-accent">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-gold-accent">Event Spaces</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-gold-accent">Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>Sammer Gallery, Avondale</li>
+                        <li>+263 77 954 0395</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500">&copy; 2026 7 Arts Theatre. All rights reserved. | Harare, Zimbabwe</p>
+                <p class="text-gray-600 text-xs mt-2">Designed and developed by: <a href="https://www.blacklemur.co.zw" target="_blank" class="text-gold-accent">Blacklemur Innovations</a> - www.blacklemur.co.zw</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
