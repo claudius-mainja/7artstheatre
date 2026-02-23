@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../7arts logo-04.png">
@@ -29,7 +30,62 @@
             }
         }
     </script>
+    <style>
+        .product-card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        .product-card-3d:hover {
+            transform: translateY(-20px) rotateX(5deg);
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-element-delay {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        .glow-pulse {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+        .gradient-border-animated {
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.3); }
+            50% { box-shadow: 0 0 40px rgba(212,175,55,0.6); }
+        }
+        @keyframes gradientMove {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        . holographic {
+            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(139,0,0,0.1) 50%, rgba(212,175,55,0.1) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .particle-ring {
+            position: absolute;
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 50%;
+            animation: pulseRing 3s ease-out infinite;
+        }
+        @keyframes pulseRing {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+    </style>
 </head>
+<script>
+    if (window.location.protocol === 'http:' && window.location.hostname && !window.location.hostname.match(/^(localhost|127\.0\.0\.1)$/)) {
+        window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+</script>
 <body class="bg-theatre-black text-white font-body overflow-x-hidden">
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-theatre-black/95 backdrop-blur-lg">
@@ -44,11 +100,9 @@
                     <a href="about.html" class="nav-link">About</a>
                     <a href="events.html" class="nav-link">Events</a>
                     <a href="services.html" class="nav-link">Services</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
                     <a href="products.html" class="nav-link active">Products</a>
                     <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="tickets.html" class="btn-ticket">
-                        <span class="relative z-10">Get Tickets</span>
-                    </a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden text-white p-2">
@@ -65,162 +119,268 @@
                 <a href="about.html" class="block nav-link-mobile">About</a>
                 <a href="events.html" class="block nav-link-mobile">Events</a>
                 <a href="services.html" class="block nav-link-mobile">Services</a>
+                <a href="gallery.html" class="block nav-link-mobile">Gallery</a>
                 <a href="products.html" class="block nav-link-mobile active">Products</a>
                 <a href="contact.html" class="block nav-link-mobile">Contact</a>
-                <a href="tickets.html" class="block btn-ticket w-full text-center">Get Tickets</a>
             </div>
         </div>
     </nav>
 
     <!-- 3D Hero Section -->
-    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div class="hero-3d-container">
             <div class="hero-slide active" style="background-image: url('../assets/images/homehero2.png')"></div>
             <div class="hero-overlay"></div>
             <div class="hero-glow"></div>
         </div>
         
+        <!-- Floating 3D Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="floating-element absolute top-1/4 left-1/4 w-20 h-20 border border-gold-accent/30 rounded-full"></div>
+            <div class="floating-element-delay absolute top-1/3 right-1/4 w-16 h-16 border border-theatre-red/30 rounded-full"></div>
+            <div class="floating-element absolute bottom-1/4 left-1/3 w-12 h-12 bg-gold-accent/10 rounded-full"></div>
+        </div>
+        
         <div class="hero-particles" id="particles"></div>
         
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
+        <div class="relative z-10 container mx-auto px-6 text-center pt-24">
+            <div class="inline-block px-6 py-2 bg-theatre-red/30 border border-gold-accent/50 rounded-full mb-6 animate-pulse">
+                <span class="text-gold-accent tracking-[0.3em] uppercase text-sm">Innovation Meets Excellence</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-up">
+                Our <span class="text-gradient">Products</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-delay mb-8">
+                Cutting-edge solutions designed to elevate your events and create unforgettable experiences
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+                <a href="#products" class="btn-primary glow-pulse">
+                    <span class="relative z-10">Explore Products</span>
+                    <div class="btn-shine"></div>
+                </a>
+                <a href="contact.html" class="btn-secondary">
+                    <span class="relative z-10">Get In Touch</span>
+                </a>
+            </div>
         </div>
         
-        <div class="relative z-10 container mx-auto px-6 text-center pt-24">
-            <p class="text-gold-accent tracking-[0.3em] uppercase mb-4 text-lg animate-fade-in">Our Products</p>
-            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
-                What We <span class="text-gradient">Offer</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-delay">
-                Additional services to complement your events
-            </p>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
         </div>
     </section>
 
-    <!-- Products Tabs -->
-    <section class="py-10 bg-theatre-dark">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-4">
-                <button class="tab-btn active" data-tab="mujegra">Mujegra Photostudio</button>
-                <button class="tab-btn" data-tab="proticket">7ProTicket</button>
+    <!-- Products Showcase -->
+    <section id="products" class="py-24 bg-theatre-dark relative overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="particle-ring" style="top: 10%; left: 10%; width: 300px; height: 300px;"></div>
+            <div class="particle-ring" style="top: 60%; right: 10%; width: 400px; height: 400px; animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-gold-accent tracking-[0.3em] uppercase mb-4">What We Offer</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Innovative <span class="text-gradient">Solutions</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Discover our range of premium products crafted to transform your events</p>
+            </div>
+
+            <!-- Product Cards -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Mujegra Photostudio Card -->
+                <div class="product-card-3d group" data-tilt>
+                    <div class="relative bg-theatre-black rounded-3xl overflow-hidden border border-gold-accent/20 hover:border-gold-accent/50 transition-all duration-500">
+                        <!-- Card Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-gold-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <!-- Image Section -->
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-theatre-black to-transparent z-10"></div>
+                            <img src="../assets/images/home/event3.jpg" alt="Mujegra Photostudio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-4 py-1 bg-theatre-red/80 backdrop-blur text-gold-accent text-sm rounded-full">Photography</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="relative p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gold-accent/20 flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-2xl font-bold">Mujegra <span class="text-gradient">Photostudio</span></h3>
+                            </div>
+                            
+                            <p class="text-gray-400 mb-6">Professional photography and videography services capturing your precious moments with artistic excellence.</p>
+                            
+                            <!-- Features -->
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Event Photography
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Videography
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Corporate Headshots
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Wedding Coverage
+                                </div>
+                            </div>
+                            
+                            <!-- CTA -->
+                            <a href="contact.html" class="inline-flex items-center justify-center w-full py-4 bg-gradient-to-r from-theatre-red to-theatre-red/80 hover:from-theatre-red/90 hover:to-theatre-red/70 rounded-xl font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-theatre-red/30">
+                                <span>Book a Session</span>
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7ProTicket Card -->
+                <div class="product-card-3d group" data-tilt>
+                    <div class="relative bg-theatre-black rounded-3xl overflow-hidden border border-gold-accent/20 hover:border-gold-accent/50 transition-all duration-500">
+                        <!-- Card Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-gold-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <!-- Image Section -->
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-theatre-black to-transparent z-10"></div>
+                            <img src="../assets/images/home/event1.jpg" alt="7ProTicket" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-4 py-1 bg-theatre-red/80 backdrop-blur text-gold-accent text-sm rounded-full">Ticketing</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="relative p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gold-accent/20 flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-2xl font-bold">7<span class="text-gradient">ProTicket</span></h3>
+                            </div>
+                            
+                            <p class="text-gray-400 mb-6">The ultimate event ticketing solution with seamless entry management and real-time tracking.</p>
+                            
+                            <!-- Features -->
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Online Sales
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    E-Tickets
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    QR Codes
+                                </div>
+                                <div class="flex items-center text-gray-300 text-sm">
+                                    <span class="w-6 h-6 rounded-full bg-theatre-red/20 flex items-center justify-center mr-2 text-gold-accent">✓</span>
+                                    Live Tracking
+                                </div>
+                            </div>
+                            
+                            <!-- CTA -->
+                            <a href="contact.html" class="inline-flex items-center justify-center w-full py-4 bg-gradient-to-r from-theatre-red to-theatre-red/80 hover:from-theatre-red/90 hover:to-theatre-red/70 rounded-xl font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-theatre-red/30">
+                                <span>Learn More</span>
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mujegra Photostudio -->
-    <section id="mujegra" class="tab-content py-20 bg-theatre-black">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="inline-block px-4 py-1 bg-theatre-red/20 text-gold-accent rounded-full text-sm mb-4">7 Arts Theatre Product</div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Mujegra <span class="text-gradient">Photostudio</span></h2>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Welcome to Mujegra Photostudio, your premier destination for professional photography and videography services in Harare.
-                    </p>
-                    <p class="text-gray-300 mb-8 leading-relaxed">
-                        Whether you're planning a corporate event, wedding, or need professional headshots, our experienced team delivers stunning visuals.
-                    </p>
-
-                    <h3 class="font-display text-2xl font-semibold mb-4">Our Services</h3>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center text-gray-300">
-                            <span class="text-gold-accent mr-2">📸</span> Event Photography
-                        </div>
-                        <div class="flex items-center text-gray-300">
-                            <span class="text-gold-accent mr-2">🎥</span> Videography
-                        </div>
-                        <div class="flex items-center text-gray-300">
-                            <span class="text-gold-accent mr-2">👔</span> Corporate Headshots
-                        </div>
-                        <div class="flex items-center text-gray-300">
-                            <span class="text-gold-accent mr-2">💍</span> Wedding Coverage
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="btn-primary">
-                        <span class="relative z-10">Book a Session</span>
-                        <div class="btn-shine"></div>
-                    </a>
-                </div>
-
-                <div class="relative" data-tilt>
-                    <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold-accent rounded-2xl"></div>
-                    <img src="../assets/images/home/event3.jpg" alt="Mujegra Photostudio" class="relative rounded-2xl w-full h-[500px] object-cover">
-                </div>
-            </div>
+    <!-- Why Choose Us -->
+    <section class="py-24 bg-theatre-black relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full" style="background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.1) 0%, transparent 50%);"></div>
+            <div class="absolute bottom-0 right-0 w-full h-full" style="background: radial-gradient(circle at 70% 50%, rgba(139,0,0,0.1) 0%, transparent 50%);"></div>
         </div>
-    </section>
-
-    <!-- 7ProTicket -->
-    <section id="proticket" class="tab-content py-20 bg-theatre-black hidden">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="relative" data-tilt>
-                        <img src="../assets/images/home/event1.jpg" alt="7ProTicket" class="rounded-2xl w-full h-[500px] object-cover">
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-gold-accent tracking-[0.3em] uppercase mb-4">Why Choose Us</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">The <span class="text-gradient">Advantage</span></h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center group" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-theatre-red/20 flex items-center justify-center group-hover:bg-theatre-red/40 transition-colors">
+                        <svg class="w-10 h-10 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Innovation First</h3>
+                    <p class="text-gray-400">Cutting-edge technology and creative solutions that set your events apart</p>
                 </div>
-
-                <div class="order-1 lg:order-2">
-                    <div class="inline-block px-4 py-1 bg-theatre-red/20 text-gold-accent rounded-full text-sm mb-4">7 Arts Theatre Product</div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">7<span class="text-gradient">ProTicket</span></h2>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        The ultimate event ticketing solution for seamless entry management. Sell tickets online with instant e-tickets.
-                    </p>
-
-                    <h3 class="font-display text-2xl font-semibold mb-4">Key Features</h3>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-gold-accent">✓</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Online Ticket Sales</h4>
-                                <p class="text-gray-400 text-sm">Sell tickets directly from your website</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-gold-accent">✓</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">E-Tickets with Barcodes</h4>
-                                <p class="text-gray-400 text-sm">Instant digital tickets with QR codes</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-theatre-red/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-gold-accent">✓</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Real-time Entry Tracking</h4>
-                                <p class="text-gray-400 text-sm">Monitor attendance in real-time</p>
-                            </div>
-                        </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center group" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-theatre-red/20 flex items-center justify-center group-hover:bg-theatre-red/40 transition-colors">
+                        <svg class="w-10 h-10 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                     </div>
-
-                    <a href="tickets.html" class="btn-primary">
-                        <span class="relative z-10">Get Tickets</span>
-                        <div class="btn-shine"></div>
-                    </a>
+                    <h3 class="font-display text-xl font-semibold mb-3">Affordable Excellence</h3>
+                    <p class="text-gray-400">Premium quality services at competitive prices for all budgets</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center group" data-tilt>
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-theatre-red/20 flex items-center justify-center group-hover:bg-theatre-red/40 transition-colors">
+                        <svg class="w-10 h-10 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Expert Team</h3>
+                    <p class="text-gray-400">Professionals with years of experience delivering exceptional results</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-theatre-red/20 to-theatre-dark/20"></div>
-        <div class="hero-3d-container opacity-30">
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-theatre-red/20 via-theatre-dark/50 to-theatre-red/20"></div>
+        <div class="hero-3d-container opacity-20">
             <div class="hero-slide active" style="background-image: url('../assets/images/homehero1.png')"></div>
         </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="floating-element absolute top-1/4 left-10% w-16 h-16 border border-gold-accent/20 rounded-full"></div>
+            <div class="floating-element-delay absolute bottom-1/4 right-10% w-20 h-20 border border-gold-accent/20 rounded-full"></div>
+        </div>
+        
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Interested in Our Products?</h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Contact us today to learn more.</p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Ready to <span class="text-gradient">Transform</span> Your Event?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Let's create something extraordinary together. Contact us today for a personalized quote.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="btn-primary">
-                    <span class="relative z-10">Contact Us</span>
+                <a href="contact.html" class="btn-primary glow-pulse">
+                    <span class="relative z-10">Get Started</span>
                     <div class="btn-shine"></div>
                 </a>
                 <a href="events.html" class="btn-secondary">
@@ -272,18 +432,62 @@
 
     <script src="../js/main.js"></script>
     <script>
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const tabId = btn.dataset.tab;
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.add('hidden');
-                });
-                document.getElementById(tabId).classList.remove('hidden');
+        // 3D Tilt Effect for Product Cards
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
             });
         });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card-3d').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Add animation class
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-slide-up {
+                animation: slideUp 0.8s ease forwards;
+            }
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

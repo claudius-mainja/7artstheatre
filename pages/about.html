@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../7arts logo-04.png">
@@ -30,6 +31,11 @@
         }
     </script>
 </head>
+<script>
+    if (window.location.protocol === 'http:' && window.location.hostname && !window.location.hostname.match(/^(localhost|127\.0\.0\.1)$/)) {
+        window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+</script>
 <body class="bg-theatre-black text-white font-body overflow-x-hidden">
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-theatre-black/95 backdrop-blur-lg">
@@ -44,11 +50,9 @@
                     <a href="about.html" class="nav-link active">About</a>
                     <a href="events.html" class="nav-link">Events</a>
                     <a href="services.html" class="nav-link">Services</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
                     <a href="products.html" class="nav-link">Products</a>
                     <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="tickets.html" class="btn-ticket">
-                        <span class="relative z-10">Get Tickets</span>
-                    </a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden text-white p-2">
@@ -65,9 +69,9 @@
                 <a href="about.html" class="block nav-link-mobile active">About</a>
                 <a href="events.html" class="block nav-link-mobile">Events</a>
                 <a href="services.html" class="block nav-link-mobile">Services</a>
+                <a href="gallery.html" class="block nav-link-mobile">Gallery</a>
                 <a href="products.html" class="block nav-link-mobile">Products</a>
                 <a href="contact.html" class="block nav-link-mobile">Contact</a>
-                <a href="tickets.html" class="block btn-ticket w-full text-center">Get Tickets</a>
             </div>
         </div>
     </nav>
